@@ -25,7 +25,7 @@ namespace Gherman_Adela_Lab8.Pages.Categories
         }
 
         [BindProperty]
-        public Publisher Publisher { get; set; }
+        public Category Category { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +35,7 @@ namespace Gherman_Adela_Lab8.Pages.Categories
                 return Page();
             }
 
-            _context.Publisher.Add(Publisher);
+            _context.Category.Add(Category);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

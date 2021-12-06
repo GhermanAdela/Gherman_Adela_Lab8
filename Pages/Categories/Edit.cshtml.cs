@@ -21,7 +21,7 @@ namespace Gherman_Adela_Lab8.Pages.Categories
         }
 
         [BindProperty]
-        public Publisher Publisher { get; set; }
+        public Category Category { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,9 +30,9 @@ namespace Gherman_Adela_Lab8.Pages.Categories
                 return NotFound();
             }
 
-            Publisher = await _context.Publisher.FirstOrDefaultAsync(m => m.ID == id);
+            Category = await _context.Category.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Publisher == null)
+            if (Category == null)
             {
                 return NotFound();
             }
@@ -48,7 +48,7 @@ namespace Gherman_Adela_Lab8.Pages.Categories
                 return Page();
             }
 
-            _context.Attach(Publisher).State = EntityState.Modified;
+            _context.Attach(Category).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace Gherman_Adela_Lab8.Pages.Categories
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PublisherExists(Publisher.ID))
+                if (!CategoryExists(Category.ID))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace Gherman_Adela_Lab8.Pages.Categories
             return RedirectToPage("./Index");
         }
 
-        private bool PublisherExists(int id)
+        private bool CategoryExists(int id)
         {
-            return _context.Publisher.Any(e => e.ID == id);
+            return _context.Category.Any(e => e.ID == id);
         }
     }
 }

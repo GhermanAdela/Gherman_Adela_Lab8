@@ -19,11 +19,11 @@ namespace Gherman_Adela_Lab8.Pages.Categories
             _context = context;
         }
 
-        public IList<Publisher> Publisher { get;set; }
+        public IList<Category> Category { get;set; }
 
         public async Task OnGetAsync()
         {
-            Publisher = await _context.Publisher.ToListAsync();
+            Category = await _context.Category.ToListAsync();
         }
     }
 }
